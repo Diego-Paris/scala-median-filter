@@ -3,12 +3,12 @@ import javax.imageio.ImageIO
 import java.awt.image.BufferedImage
 import java.awt.Color
 
-//TODO IMPORTANT VALUES
-val img = ImageIO.read(new File("my-result3new.png"))
+
+val img = ImageIO.read(new File("zozo.png"))
+val img2 = ImageIO.read(new File("zozo.png"))
 
 val w = img.getWidth
 val h = img.getHeight
-//TODO END OF IMPORTANT VALUES
 
 val green = Color.GREEN
 
@@ -54,17 +54,32 @@ for (x <- 0 until w) {
       val median = getMedian(myArr)
 
       // Set pixel to median
-      img.setRGB(x,y, median)
+      img2.setRGB(x,y, median)
       println("Changed pixel")
     } catch {
       case e:Exception=>
         println("Skipped pixel!!")
     }
 
+  //   //set pixel to blue using the RGB val
+  //   img.setRGB(x,y, Color.BLUE.getRGB())
+
+  //   // get value and turn into Color obj
+  //   val c = new Color(img.getRGB(x, y))
+    
+  //   if (isEqual(c, green)) {
+  //     ctrGreen += 1
+  //   }
+  //   ctrTotal += 1;
+
+  // }
+
+  // println("Green pixel count: " + ctrGreen)
+  // println("Total pixel count: " + ctrTotal)  
   }
 }
 
-ImageIO.write(img,"png",new File("my-result3new2.png"))
+ImageIO.write(img2,"png",new File("outputV22.png"))
 
 def isEqual(c1: Color, c2: Color): Boolean = {  
   c1.getRed == c2.getRed && c1.getBlue == c2.getBlue && c1.getGreen == c2.getGreen
